@@ -1,0 +1,4 @@
+require "MangUpdate"
+require "MangUpdate/cli"
+
+MangUpdate::CLI.start

@@ -1,0 +1,32 @@
+base_path       = "."
+mangos_path     = base_path + "/mangos"
+scriptdev2_path = base_path + "/scriptdev2"
+
+config :mysql_user, "mangos"
+config :mysql_pass, "mangos"
+
+list("Main Core") do
+  path "#{mangos_path}/sql/updates/*.sql", :model => :main_core
+end
+
+list("Main SD2") do
+  path "#{scriptdev2_path}/sql/updates/r*.sql"
+end
+
+job("Update all") do
+  filtered do
+  
+    # only apply updates that have revision number
+    # greater than currently installed revision
+    filter do |update, list|
+      update.rev > list.current_rev
+    end
+
+    apply
+    
+  end
+end
+
+#job("Custom SQL") do
+#  upload_file "#{base_path}/mangos_custom.sql", "mangos"
+#end
