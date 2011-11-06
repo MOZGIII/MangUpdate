@@ -4,7 +4,7 @@ MangUpdate
 Installation
 ------------
 
-`gem install mangupdate`
+    gem install mangupdate
 
 Usage
 -----
