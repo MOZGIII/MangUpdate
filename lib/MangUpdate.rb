@@ -145,6 +145,8 @@ module MangUpdate
     def load_dumpfile
       @loaded_dumpfile = Dumpfile.load
       
+      return unless @loaded_dumpfile
+      
       @loaded_dumpfile.revs.each do |key, value|
         list = lists(key)
         list.current_rev = value if list
