@@ -8,6 +8,9 @@ Installation
 
 Usage
 -----
+   
+### WARNING!!!
+**Always check you config with `mangupdate -nl` (dry run and list updates) before using `mangupdate`!**
 
  - Create `Mupfile` with `mangupdate init`.
  - Edit and configure `Mupfile` as you need.
